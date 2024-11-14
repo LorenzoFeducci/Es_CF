@@ -15,9 +15,12 @@
         $valore = $_GET["eta"];
 
         if(!isset($_SESSION["registrazioni"])){
-            $_SESSION["registrazioni"] = array($chiaveCF => $valore);
+            $persona = array($chiaveCF => $valore);
+            $_SESSION["registrazioni"] = $persona;
         } else {
-            array_push($_SESSION["registrazioni"], $chiaveCF => $valore);
+            $persona = $_SESSION["registrazioni"];
+            $persona[$chiaveCF] = $valore;
+            $_SESSION["registrazioni"] = $persona;
         }
         
     ?>
